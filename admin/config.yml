@@ -12,8 +12,6 @@
 
 backend:
   name: github
-  # TODO: this repo doesn't exist on GitHub yet - create it (private or
-  # public, per Blake's call) before this editor will work. Planned name:
   repo: bcreates440/jones-uncommon-site
   branch: main
   # --- OAUTH LOGIN -------------------------------------------------------

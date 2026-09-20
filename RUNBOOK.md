@@ -1,6 +1,6 @@
 # Jones Uncommon Website — Runbook
 
-Project handoff / reference sheet. Last verified 2026-09-19.
+Project handoff / reference sheet. Last verified 2026-09-20.
 
 Jones Uncommon — DBA under Jones Uncommon LLC. The provider's own site,
 built on the same stack sold to clients, and used as the flagship demo.
@@ -9,9 +9,8 @@ via a Cloudflare Worker shared across every client site's editor — see
 [client-sites-auth](https://github.com/bcreates440/client-sites-auth).
 Built from [client-site-template](https://github.com/bcreates440/client-site-template).
 
-**Status:** Scaffolded locally, not yet pushed to GitHub · Domain not
-registered · Placeholder content pending Blake's photo/About paragraph/WWCA
-testimonial · Intake-form backend not chosen yet
+**Status:** Live on GitHub Pages · Domain not registered · Awaiting a headshot
+and the WWCA testimonial · Copy is written but unreviewed by Blake
 
 ---
 
@@ -23,10 +22,10 @@ instead.
 
 | | |
 |---|---|
-| **Live site (current)** | Not live yet — remote repo not created |
+| **Live site (current)** | https://bcreates440.github.io/jones-uncommon-site/ |
 | **Live site (future)** | jonesuncommon.com — not registered yet |
-| **Editor** | (site)/admin/ — won't work until the repo exists on GitHub, see `admin/config.yml`'s `backend.repo` TODO |
-| **GitHub repo** | https://github.com/bcreates440/jones-uncommon-site — planned name, **not created yet** |
+| **Editor** | https://bcreates440.github.io/jones-uncommon-site/admin/ |
+| **GitHub repo** | https://github.com/bcreates440/jones-uncommon-site — public, branch `main` |
 | **OAuth worker** | https://client-sites-auth.bcreates440.workers.dev — shared with other client sites, source at [bcreates440/client-sites-auth](https://github.com/bcreates440/client-sites-auth), not in this repo |
 | **GitHub account** | bcreates440 |
 | **Cloudflare account** | bcreates440@gmail.com — subdomain `bcreates440.workers.dev` |
@@ -76,7 +75,8 @@ jones-uncommon-site/
 ```
 
 The 4 pages: Home (`index.html`), Work (`work.html`), Services
-(`services.html`), Start (`start.html`) — see `_data/nav.yml`.
+(`services.html`), Contact (`contact.html`) — see `_data/nav.yml`.
+`fonts/` holds the self-hosted heading font and its licence.
 
 ---
 
@@ -84,8 +84,7 @@ The 4 pages: Home (`index.html`), Work (`work.html`), Services
 
 ### Content changes
 Wording, the About paragraph, the headshot, the testimonial — anything a
-non-technical editor should be able to do alone, once the repo exists and
-the editor is wired up.
+non-technical editor should be able to do alone.
 
 1. Open `/admin/`, sign in with GitHub
 2. Open a page, edit the section
@@ -124,20 +123,30 @@ Same rules as every site built on this stack:
   business — off-brand for "a real person, not an agency". `contact.html`
   publishes the phone and email directly instead. Client sites are a different
   decision (Formspree free tier) — see `ops/design/form-backend-decision.md`.
-- **`_data/site.yml` placeholder contact info is now blocking, not cosmetic.**
-  `phone`, `phone_dial`, `phone_href` and `address` are still `PLACEHOLDER`.
-  Since the contact page *is* the contact details, this page is non-functional
-  until they're real. The phone number lives in **three** fields that must
-  change together (readable, dialable, and the button link).
+- **The phone number lives in THREE fields** in `_data/site.yml` — `phone`
+  (readable), `phone_dial` (`+1…`) and `phone_href` (`tel:+1…`). Change them
+  together or the tap-to-call button and the printed number drift apart.
+  Currently Blake's personal line; a Google Voice number is the eventual plan.
+  `email`/`email_href` pair the same way and still point at a domain that
+  does not exist yet.
 - **Buttons can pull their address from `_data/site.yml`** via `link:`
   (e.g. `link: phone_href`) instead of a hardcoded `url:`. Keeps the number in
-  one place. Note: `link` was supported by `_includes/blocks/buttons.html` but
-  missing from `admin/config.yml` until 2026-09-20 — meaning Decap would have
-  silently deleted it on save. Fixed here; **the same bug is still upstream in
-  `client-site-template`.**
-- **Color palette is still WWCA's** (`css/styles.css`'s `:root` navy/red/gold)
-  — inherited from `client-site-template`, not a considered brand choice for
-  Jones Uncommon yet.
+  one place. (`link` was supported by `buttons.html` but missing from
+  `admin/config.yml`, so Decap silently deleted it on save — fixed here and
+  upstream in `client-site-template` on 2026-09-20.)
+- **Every colour comes from a `:root` token, and `check.rb` enforces it.**
+  Write a colour anywhere else — including an inline `style=` in a page — and
+  the check fails. To rebrand, edit `:root` and nothing else. The one
+  exception is `theme_color` in `_data/site.yml`, because a `<meta>` tag
+  cannot read a CSS variable.
+- **Two type tokens, not one.** `--display` is the serif used for headings and
+  the wordmark; `--ui` is the sans used for buttons, eyebrows and table
+  headers. Keep them separate — uppercase serif at label size reads dated.
+  `--display-case` flips headings between sentence case and uppercase.
+- **The heading font is self-hosted** (`fonts/lora-var.woff2`, OFL). It is
+  preloaded in `head.html` and uses `font-display:swap`. The `@font-face`
+  `src:` path is `../fonts/…` because stylesheet paths resolve from the
+  stylesheet, not the page.
 - **Shortcuts** — typing `[[org]]`, `[[phone]]`, `[[email]]`, `[[address]]`
   inside body text pulls the real value from `_data/site.yml`.
 
@@ -145,18 +154,24 @@ Same rules as every site built on this stack:
 
 ## Pending tasks
 
-- **Repo doesn't exist yet** — create `bcreates440/jones-uncommon-site` on
-  GitHub, then update `admin/config.yml`'s `backend.repo` if the name
-  changes, and `_config.yml`'s `url` / `admin/config.yml`'s `site_url` /
-  `display_url` to match.
 - **Domain** — jonesuncommon.com needs registering, then pointing at GitHub
-  Pages once the repo is live.
-- **Content from Blake** — headshot/warm photo, the About paragraph (Home
-  page, currently a `PLACEHOLDER` block), and the WWCA testimonial (after
-  his Monday meeting, also currently a `PLACEHOLDER`).
-- **Contact info — now the top blocker.** Real phone (`phone`, `phone_dial`,
-  `phone_href`) and address or service-area line in `_data/site.yml`. The
-  contact page is just these details, so it doesn't work without them.
+  Pages. Until then `_config.yml`'s `url` and `admin/config.yml`'s
+  `site_url`/`display_url` stay on the github.io address.
+- **Headshot** — the About section on the home page is a text-only `prose`
+  block on purpose, because a `split` block with an empty `image:` renders a
+  broken image. Once there's a real photo: change that block's type to
+  `split`, add `image:`, `image_alt:`, `image_width:`/`image_height:`, and
+  drop the photo in `images/`. Nothing else needs touching.
+- **WWCA testimonial** — the "Recent work" section currently carries
+  verifiable facts (Lighthouse scores, page count, running cost) rather than
+  a quote. Add a real quote from the board once they've given one; do not
+  write one on their behalf.
+- **Copy review** — the About paragraph and the rest of the site copy were
+  drafted for Blake, not by him. Everything in it is factually true as far as
+  it goes, but it has not been checked against how he'd actually say it.
+- **Email address** — `hello@jonesuncommon.com` does not exist until the
+  domain is registered. It is published on the contact page and in the footer,
+  so mail sent there currently goes nowhere.
 - ~~Intake-form backend~~ — **resolved 2026-09-20**: no form on this site by
   design. Client sites use Formspree's free tier, client-owned. See
   `ops/design/form-backend-decision.md`.
@@ -172,11 +187,27 @@ Same rules as every site built on this stack:
 
 ## Build history
 
-- Scaffolded 2026-09-19 via Claude Code from
+- **2026-09-19** — Scaffolded from
   [client-site-template](https://github.com/bcreates440/client-site-template),
-  per `jones-uncommon-claude-code-brief.md`. 4-page sitemap built with
-  placeholder content where Blake's voice/photo/testimonial go. Not yet
-  committed to a remote — local git repo only.
+  per `jones-uncommon-claude-code-brief.md`. 4-page sitemap, placeholder copy,
+  local git only.
+- **2026-09-20** — Pushed to `bcreates440/jones-uncommon-site` (public) and
+  GitHub Pages enabled. Live.
+- **2026-09-20** — `start.html` (which held a non-functional form) replaced by
+  `contact.html`: phone and email published directly, no form, by decision —
+  see `ops/design/form-backend-decision.md`. Real phone number added.
+- **2026-09-20** — Retheme. Colour tokens renamed for their role, ~12
+  brand-derived hex literals removed from the stylesheet, and colour swept out
+  of `cta.html`, `footer.html`, `head.html` (`<meta theme-color>` had been
+  shipping WWCA navy to every page) and the editor's boot screen. New palette
+  applied. `check.rb` gained a guard that fails on any colour outside `:root`.
+  Fixed three invisible buttons found along the way.
+- **2026-09-20** — Typography. Headings moved to self-hosted Lora (OFL) in
+  sentence case; `--display`/`--ui` split so labels stay sans.
+- **2026-09-20** — Site copy drafted (About, proof section) and the voice
+  changed from "we" to "I" throughout, since a one-person business writing
+  "we" undercuts the "a real person, not an agency" positioning. **Not yet
+  reviewed by Blake.**
 
 ---
 
