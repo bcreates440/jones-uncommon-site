@@ -24,33 +24,33 @@
 :root{
   /* --brand: dark surfaces - header, footer, dark bands, dark buttons.
      Must be dark enough for white text to sit on it (4.5:1 or better). */
-  --brand:#291F1E; --brand-2:#3A2C2A; --brand-deep:#1C1413;
+  --brand:#2D3142; --brand-2:#3B4155; --brand-deep:#21242F;
 
   /* --accent: the "do this" colour - buttons, links, eyebrows, big numbers.
      Must clear 4.5:1 against --cream, because links are body-text sized. */
-  --accent:#315C2B; --accent-dark:#24451F;
+  --accent:#A33B20; --accent-dark:#7E2D18;
 
   /* --highlight: focus rings and the "attention" callout. */
-  --highlight:#477998;
+  --highlight:#4F5D75;
 
   /* ---- SURFACES + TEXT ---- */
-  --cream:#F4F1DE; --paper:#FFFFFF;
-  --ink:#291F1E; --ink-soft:#5A4E4C; --line:#DED8C8;
+  --cream:#F1F2F2; --paper:#FFFFFF;
+  --ink:#2D3142; --ink-soft:#4F5D75; --line:#BFC0C0;
 
   /* ---- DERIVED: text and tints that sit ON the brand/accent colours.
      These used to be hardcoded hexes, so they stayed navy-blue no matter what
      the brand colour was. Now they move with the brand. ---- */
-  --on-dark:#FFFFFF;         /* text/icons on any dark surface - warm it if pure white feels clinical */
-  --on-brand:#EFEAE4;        /* body text on a brand band */
-  --on-brand-soft:#BCAFA9;   /* muted text on a brand band */
-  --on-brand-faint:#8F817D;  /* the legal line in the footer */
-  --on-brand-link:#A8D49E;   /* links on a brand band - accent fails there */
-  --accent-pale:#9CC894;     /* eyebrow on a brand band */
-  --on-accent-soft:#DCEAD6;  /* muted text on an accent band */
-  --note-bg:#EDF2E9;         /* boxed note */
-  --alert-bg:#E9F0F5;        /* attention box (tinted from --highlight) */
-  --stripe:#FAF8F0;          /* every other table row */
-  --hero-veil:41,31,30;      /* r,g,b of the darkening layer over a hero photo */
+  --on-dark:#FFFFFF;         /* text/icons on any dark surface */
+  --on-brand:#E8EAEF;        /* body text on a brand band */
+  --on-brand-soft:#B6BCCB;   /* muted text on a brand band */
+  --on-brand-faint:#9AA2B4;  /* the legal line in the footer */
+  --on-brand-link:#F0A48C;   /* links on a brand band - the rust fails on slate (1.96:1) */
+  --accent-pale:#E89A84;     /* eyebrow on a brand band */
+  --on-accent-soft:#F6D9D0;  /* muted text on an accent band */
+  --note-bg:#FBF0EC;         /* boxed note */
+  --alert-bg:#EDF0F4;        /* attention box (tinted from --highlight) */
+  --stripe:#F7F8F8;          /* every other table row */
+  --hero-veil:33,36,47;      /* r,g,b of the darkening layer over a hero photo */
 
   /* ---- TYPE ---- */
   --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
