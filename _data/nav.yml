@@ -11,7 +11,7 @@ items:
   - slug: services
     url: services.html
     label: Services
-  - slug: start
-    url: start.html
-    label: Start
-    footer: "Get a free quote"
+  - slug: contact
+    url: contact.html
+    label: Contact
+    footer: "Get in touch"

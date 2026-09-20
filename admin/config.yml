@@ -151,8 +151,10 @@ collections:
                 summary: "{{fields.label}}"
                 fields:
                   - { label: "Button text", name: "label", widget: "string" }
-                  - { label: "Address", name: "url", widget: "string",
-                      hint: "A page on this site (about.html), a spot on this page (#contact), or a full web address." }
+                  - { label: "Address", name: "url", widget: "string", required: false,
+                      hint: "A page on this site (about.html), a spot on this page (#contact), or a full web address. Use this OR the one below, not both." }
+                  - { label: "Or a link from Site-wide details", name: "link", widget: "string", required: false,
+                      hint: "The name of a link field in Site-wide details - for example phone_href or email_href. Keeps the number or address in one place." }
                   - label: "Style"
                     name: "style"
                     widget: "select"
@@ -509,9 +511,13 @@ collections:
           - { label: "One-line description (used in the footer)", name: "org_blurb", widget: "text" }
           - { label: "Address", name: "address", widget: "string" }
           - { label: "Email address", name: "email", widget: "string" }
+          - { label: "Email address, as a button link", name: "email_href", widget: "string",
+              hint: "The same email with mailto: in front: mailto:hello@example.com. Change this whenever you change the one above." }
           - { label: "Phone, as people read it", name: "phone", widget: "string", hint: "For example (307) 555-0100" }
           - { label: "Phone, as a phone dials it", name: "phone_dial", widget: "string",
               hint: "Same number, no spaces or brackets, with +1 in front: +13075550100. Change this whenever you change the one above." }
+          - { label: "Phone, as a button link", name: "phone_href", widget: "string",
+              hint: "The same number with tel: in front: tel:+13075550100. Change this whenever you change the two above." }
           - { label: "Facebook page", name: "facebook", widget: "string", required: false }
           - { label: "Instagram page", name: "instagram", widget: "string", required: false }
           - { label: "Picture used when a link is shared", name: "share_image", widget: "string" }

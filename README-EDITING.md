@@ -16,7 +16,7 @@ nothing to upload.
 
 Open **/admin/** and sign in. You will see:
 
-- **Pages** — Home, Work, Services, Start
+- **Pages** — Home, Work, Services, Contact
 - **Site-wide details** — contact details, the team, and the navigation menu
 
 ### Editing a page
@@ -104,11 +104,16 @@ the About paragraph, and the testimonial callout in the "Recent work"
 section. Open the page in the editor and replace them — search for the word
 "PLACEHOLDER" if editing the files directly.
 
-### Wire up the intake form
+### Change the phone number or email
 
-`_content/start.html` has a form with no working backend yet — see the
-`TODO(Blake)` comment in that file and the Pending tasks list in
-`RUNBOOK.md`.
+**Site-wide details → Contact details & links.** The phone lives in three
+fields that must all change together: the readable one, the dialable one
+(`+1…`), and the button link (`tel:+1…`). Same for email and `mailto:`.
+Everything else — the footer, the contact page, the call button — follows
+automatically.
+
+There is no contact form on this site, on purpose: the phone number and
+email are published directly so people reach a person, not a queue.
 
 ### Add a new page
 

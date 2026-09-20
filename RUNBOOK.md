@@ -119,15 +119,22 @@ Same rules as every site built on this stack:
   a field by hand without adding it there too, and it gets silently thrown
   away on the next editor save. `check.rb` catches this — run it after any
   manual template change.
-- **The intake form (Start page) has no backend yet.** This stack is
-  deliberately server-free (GitHub Pages + a login-only Cloudflare Worker),
-  so the form in `_content/start.html` (a `raw` HTML block) currently posts
-  to a placeholder Formspree URL that doesn't exist. Pick a static-form
-  service and swap in the real endpoint before this page goes live — see
-  the `TODO(Blake)` comment right in that file.
-- **`_data/site.yml` has placeholder contact info** (`phone`, `address`) —
-  marked `PLACEHOLDER` in the file. Fill these in before launch or the
-  footer and phone links will show placeholder text.
+- **There is deliberately no contact form.** Decided 2026-09-20: communication
+  should feel personal, and a form puts a queue between the customer and the
+  business — off-brand for "a real person, not an agency". `contact.html`
+  publishes the phone and email directly instead. Client sites are a different
+  decision (Formspree free tier) — see `ops/design/form-backend-decision.md`.
+- **`_data/site.yml` placeholder contact info is now blocking, not cosmetic.**
+  `phone`, `phone_dial`, `phone_href` and `address` are still `PLACEHOLDER`.
+  Since the contact page *is* the contact details, this page is non-functional
+  until they're real. The phone number lives in **three** fields that must
+  change together (readable, dialable, and the button link).
+- **Buttons can pull their address from `_data/site.yml`** via `link:`
+  (e.g. `link: phone_href`) instead of a hardcoded `url:`. Keeps the number in
+  one place. Note: `link` was supported by `_includes/blocks/buttons.html` but
+  missing from `admin/config.yml` until 2026-09-20 — meaning Decap would have
+  silently deleted it on save. Fixed here; **the same bug is still upstream in
+  `client-site-template`.**
 - **Color palette is still WWCA's** (`css/styles.css`'s `:root` navy/red/gold)
   — inherited from `client-site-template`, not a considered brand choice for
   Jones Uncommon yet.
@@ -147,10 +154,12 @@ Same rules as every site built on this stack:
 - **Content from Blake** — headshot/warm photo, the About paragraph (Home
   page, currently a `PLACEHOLDER` block), and the WWCA testimonial (after
   his Monday meeting, also currently a `PLACEHOLDER`).
-- **Intake-form backend** — pick a static-form service (Formspree or
-  similar) and wire the real endpoint into `_content/start.html`.
-- **Contact info** — real phone number and address (or a service-area line)
-  in `_data/site.yml`.
+- **Contact info — now the top blocker.** Real phone (`phone`, `phone_dial`,
+  `phone_href`) and address or service-area line in `_data/site.yml`. The
+  contact page is just these details, so it doesn't work without them.
+- ~~Intake-form backend~~ — **resolved 2026-09-20**: no form on this site by
+  design. Client sites use Formspree's free tier, client-owned. See
+  `ops/design/form-backend-decision.md`.
 - **Stripe** — Payment Links for the build deposit and each monthly tier,
   once there's a pricing structure to attach them to. Keys never go in this
   repo.

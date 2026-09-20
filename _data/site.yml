@@ -19,10 +19,15 @@ address:      "PLACEHOLDER - Serving Wyoming and beyond (remote-first; add a rea
 # TODO(Blake): real inbox once jonesuncommon.com exists (or use one now).
 email:        "hello@jonesuncommon.com"
 
-# TODO(Blake): real number. Written out for people, and again in the format
-# a phone can dial (with +1). BOTH must be changed together.
+# TODO(Blake): real number. Written out for people, again in the format a
+# phone dials, and again as a link a button can point at. ALL THREE must be
+# changed together.
 phone:        "PLACEHOLDER - add your number"
 phone_dial:   "+10000000000"
+phone_href:   "tel:+10000000000"
+
+# The email again, as a link a button can point at. Change with `email` above.
+email_href:   "mailto:hello@jonesuncommon.com"
 
 # --- elsewhere on the web ----------------------------------------------------
 facebook:     ""
