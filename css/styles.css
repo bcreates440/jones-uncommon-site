@@ -8,6 +8,19 @@
    The tokens are named for the JOB they do, not the colour they happen to be,
    so rebranding a site means changing values there and nothing else.
    =========================================================================== */
+
+/* The heading face, self-hosted so there is no third-party request and the
+   client owns the file. The ../ is required: paths in a stylesheet resolve
+   from the stylesheet, not the page - this file lives in css/, the font in
+   fonts/. font-display:swap means text paints immediately in the fallback
+   and reflows when Lora arrives, so this never blocks first paint. */
+@font-face{
+  font-family:'Lora';
+  src:url('../fonts/lora-var.woff2') format('woff2');
+  font-weight:400 700;
+  font-style:normal;
+  font-display:swap;
+}
 :root{
   /* --brand: dark surfaces - header, footer, dark bands, dark buttons.
      Must be dark enough for white text to sit on it (4.5:1 or better). */
@@ -41,8 +54,13 @@
 
   /* ---- TYPE ---- */
   --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  --display:"Arial Black","Segoe UI",system-ui,Impact,sans-serif;
-  --display-case:uppercase;  /* set to `none` for a softer, less shouty site */
+  /* --display: headings and the wordmark. Sentence case. */
+  --display:'Lora',Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  --display-case:none;       /* `uppercase` for a louder, more institutional site */
+  --display-weight:600;
+  /* --ui: the small uppercase labels - buttons, eyebrows, table headers.
+     Kept as a sans on purpose: uppercase serif at label size reads dated. */
+  --ui:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   /* ---- SPACING / SHAPE ---- */
   --wrap:1180px; --gutter:20px; --radius:10px;
   --shadow:0 2px 10px rgba(0,0,0,.10);
@@ -60,7 +78,8 @@ body{margin:0;font-family:var(--font);font-size:17px;line-height:1.65;
 img{max-width:100%;height:auto;display:block}
 a{color:var(--red);text-decoration-thickness:.08em;text-underline-offset:.18em}
 a:hover{color:var(--red-dark)}
-h1,h2,h3,h4{font-family:var(--display);line-height:1.12;margin:0 0 .5em}
+h1,h2,h3,h4{font-family:var(--display);font-weight:var(--display-weight);
+  line-height:1.16;letter-spacing:-.01em;margin:0 0 .5em}
 /* Headings follow --display-case. Small labels (eyebrows, buttons, table
    headers) stay uppercase either way - that reads as typographic convention
    rather than shouting. */
@@ -72,7 +91,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gutter)}
 .narrow{max-width:820px}
 .center{text-align:center}
-.eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;
+.eyebrow{font-family:var(--ui);text-transform:uppercase;letter-spacing:.14em;
   font-size:.78rem;color:var(--red);margin:0 0 .6rem}
 .lede{font-size:1.15rem;color:var(--ink-soft)}
 .skip{position:absolute;left:-9999px;top:0;background:var(--red);color:var(--on-dark);
@@ -83,7 +102,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 /* ---------- BUTTONS ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
   min-height:48px;padding:.8rem 1.5rem;border-radius:var(--radius);
-  font-family:var(--display);font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;
+  font-family:var(--ui);font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;
   text-decoration:none;border:2px solid transparent;cursor:pointer;
   transition:transform .12s ease,background .12s ease,box-shadow .12s ease}
 .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
@@ -108,8 +127,8 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--on-dark);
   margin-right:auto}
 .brand img{width:52px;height:52px;flex:none}
-.brand b{display:block;font-family:var(--display);font-size:1.02rem;
-  text-transform:uppercase;line-height:1.1}
+.brand b{display:block;font-family:var(--display);font-size:1.15rem;
+  font-weight:var(--display-weight);line-height:1.1}
 .brand span{display:block;font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;
   color:var(--on-brand-soft)}
 .nav-toggle{position:absolute;opacity:0;width:1px;height:1px}
@@ -135,11 +154,11 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 .hero .wrap{position:relative;padding-block:clamp(3rem,9vw,6.5rem)}
 .hero h1{text-shadow:0 2px 18px rgba(0,0,0,.45);margin-bottom:.35em}
 .hero p{color:var(--on-brand);max-width:660px;margin-inline:auto}
-.datebadge{display:inline-block;background:var(--red);color:var(--on-dark);font-family:var(--display);
+.datebadge{display:inline-block;background:var(--red);color:var(--on-dark);font-family:var(--ui);
   text-transform:uppercase;letter-spacing:.09em;font-size:clamp(.95rem,2.2vw,1.2rem);
   padding:.55rem 1.3rem;border-radius:999px;margin-bottom:1.1rem}
-.hero-sub{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;
-  font-size:clamp(1rem,2.4vw,1.35rem);color:var(--on-dark);margin-bottom:1.6rem}
+.hero-sub{font-size:clamp(1.05rem,2.4vw,1.35rem);color:var(--on-dark);
+  margin-bottom:1.6rem}
 .pagehead{background:var(--navy);color:var(--on-dark);text-align:center}
 .pagehead .wrap{padding-block:clamp(2.2rem,5vw,3.4rem)}
 .pagehead p{color:var(--on-brand-soft);max-width:700px;margin-inline:auto}
@@ -195,7 +214,7 @@ section{padding-block:clamp(2.6rem,6vw,4.4rem)}
 .facts li{display:flex;flex-wrap:wrap;gap:.3rem 1rem;padding:.75rem 0;
   border-bottom:1px solid var(--line)}
 .facts li:last-child{border-bottom:0}
-.facts b{font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;
+.facts b{font-family:var(--ui);text-transform:uppercase;letter-spacing:.05em;
   font-size:.82rem;color:var(--navy);min-width:150px;flex:none;padding-top:.15rem}
 .band-navy .facts li{border-color:rgba(255,255,255,.18)}
 .band-navy .facts b{color:var(--on-dark)}
@@ -203,7 +222,7 @@ section{padding-block:clamp(2.6rem,6vw,4.4rem)}
 table{border-collapse:collapse;width:100%;min-width:460px;background:var(--paper)}
 caption{text-align:left;font-size:.9rem;color:var(--ink-soft);padding-bottom:.6rem}
 th,td{padding:.85rem 1rem;border-bottom:1px solid var(--line);text-align:left}
-th{background:var(--navy);color:var(--on-dark);font-family:var(--display);font-size:.82rem;
+th{background:var(--navy);color:var(--on-dark);font-family:var(--ui);font-size:.82rem;
   text-transform:uppercase;letter-spacing:.06em}
 tbody tr:nth-child(even){background:var(--stripe)}
 
@@ -234,7 +253,7 @@ tbody tr:nth-child(even){background:var(--stripe)}
 .person{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
   padding:1.2rem}
 .person b{display:block;font-size:1.05rem;color:var(--navy)}
-.person .role{display:block;font-family:var(--display);text-transform:uppercase;
+.person .role{display:block;font-family:var(--ui);text-transform:uppercase;
   font-size:.74rem;letter-spacing:.09em;color:var(--red);margin:.15rem 0 .5rem}
 .person a{word-break:break-word}
 
@@ -253,7 +272,7 @@ tbody tr:nth-child(even){background:var(--stripe)}
 
 /* ---------- FOOTER ---------- */
 .site-footer{background:var(--navy);color:var(--on-brand-soft);padding-block:3rem 1.5rem;font-size:.95rem}
-.site-footer h3{color:var(--on-dark);font-size:.86rem;text-transform:uppercase;letter-spacing:.11em;
+.site-footer h3{font-family:var(--ui);color:var(--on-dark);font-size:.86rem;text-transform:uppercase;letter-spacing:.11em;
   margin-bottom:.9rem}
 .site-footer a{color:var(--on-brand);text-decoration:none}
 .site-footer a:hover{color:var(--on-dark);text-decoration:underline}

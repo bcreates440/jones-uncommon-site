@@ -21,6 +21,7 @@
 <meta name="twitter:title" content="{{ page.tw_title | default: page.title }}">
 <meta name="twitter:description" content="{{ page.tw_description | default: page.description }}">
 <meta name="twitter:image" content="{{ site.url }}/{{ s.share_image }}">
+<link rel="preload" href="fonts/lora-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
 {%- if page.jsonld %}
 {% case page.slug %}
