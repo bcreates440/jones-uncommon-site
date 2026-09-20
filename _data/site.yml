@@ -12,10 +12,12 @@ org_name:   "Jones Uncommon"
 org_blurb:  "Simple, affordable websites you own."
 
 # --- how people reach them --------------------------------------------------
-# TODO(Blake): real mailing address if you want one published, or replace
-# with a service-area line like "Serving Wyoming and beyond" - remote-first
-# businesses often skip a street address entirely.
-address:      "PLACEHOLDER - Serving Wyoming and beyond (remote-first; add a real address here only if you want one published)"
+# Sits in the footer's contact block where a street address normally goes.
+# Deliberately names no location - Jones Uncommon is remote-first and isn't
+# chasing local map rankings for itself. (Client sites are the opposite: they
+# ARE local businesses, so a real address here matters for their search
+# results - see the footer.html comment about NAP consistency.)
+address:      "Remote-first. Quick, straightforward website work, wherever you are."
 # TODO(Blake): real inbox once jonesuncommon.com exists (or use one now).
 email:        "hello@jonesuncommon.com"
 
