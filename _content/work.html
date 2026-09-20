@@ -13,6 +13,7 @@ blocks:
   - type: prose
     band: paper
     narrow: false
+    feature: true
     eyebrow: "Case study"
     heading: "Wyoming Weapons Collectors Association"
     lede: "From an outdated site the board couldn't touch, to one anyone can update in a minute."
@@ -30,17 +31,59 @@ blocks:
     buttons:
       - { label: "View the live site", url: "https://bcreates440.github.io/wwca-site/", style: primary }
 
+  - type: raw
+    html: |
+      <section class="band-cream">
+        <div class="wrap center">
+          <p class="eyebrow">What you get</p>
+          <h2>A site that loads fast and reads clearly</h2>
+          <!-- Drawn, not photographed: an abstract illustration rather than a
+               screenshot, so it never goes stale when a real site changes.
+               It carries no colours of its own - every shape is filled from
+               css/styles.css, so it rebrands with the rest of the site. -->
+          <svg class="mock" viewBox="0 0 640 400" role="img"
+               aria-label="Illustration of a website layout: a browser window containing a banner, a heading, lines of text and a row of three cards.">
+            <rect class="mock-frame" x="8" y="8" width="624" height="384" rx="14"/>
+            <path class="mock-bar" d="M8 22a14 14 0 0114-14h596a14 14 0 0114 14v22H8z"/>
+            <circle class="mock-dot" cx="34" cy="26" r="5"/>
+            <circle class="mock-dot" cx="52" cy="26" r="5"/>
+            <circle class="mock-dot" cx="70" cy="26" r="5"/>
+            <rect class="mock-url" x="92" y="19" width="200" height="14" rx="7"/>
+            <rect class="mock-hero" x="28" y="64" width="584" height="104" rx="8"/>
+            <rect class="mock-head" x="52" y="92" width="268" height="18" rx="5"/>
+            <rect class="mock-sub"  x="52" y="120" width="188" height="10" rx="5"/>
+            <rect class="mock-cta"  x="52" y="140" width="92" height="16" rx="8"/>
+            <rect class="mock-line" x="28" y="192" width="360" height="11" rx="5"/>
+            <rect class="mock-line" x="28" y="212" width="300" height="11" rx="5"/>
+            <rect class="mock-card" x="28"  y="248" width="184" height="118" rx="9"/>
+            <rect class="mock-card" x="228" y="248" width="184" height="118" rx="9"/>
+            <rect class="mock-card" x="428" y="248" width="184" height="118" rx="9"/>
+            <circle class="mock-ico" cx="56"  cy="276" r="11"/>
+            <circle class="mock-ico" cx="256" cy="276" r="11"/>
+            <circle class="mock-ico" cx="456" cy="276" r="11"/>
+            <rect class="mock-line" x="44"  y="300" width="120" height="9" rx="4"/>
+            <rect class="mock-line" x="244" y="300" width="120" height="9" rx="4"/>
+            <rect class="mock-line" x="444" y="300" width="120" height="9" rx="4"/>
+            <rect class="mock-line" x="44"  y="318" width="152" height="7" rx="3"/>
+            <rect class="mock-line" x="244" y="318" width="152" height="7" rx="3"/>
+            <rect class="mock-line" x="444" y="318" width="152" height="7" rx="3"/>
+          </svg>
+        </div>
+      </section>
+
   - type: cards
-    band: cream
+    band: paper
     center: true
     columns: g2
     eyebrow: "Templates"
     heading: "Demo sites — starting points for your build"
     cards:
       - title: "Demo: local club or association"
+        icon: "person"
         body: "Coming soon — a demo build for a small club or association, ready to use as a starting point."
         comment: "Not built yet - placeholder card for the demo-sites task."
       - title: "Demo: local business"
+        icon: "tag"
         body: "Coming soon — a demo build for a local shop or service business, ready to use as a starting point."
         comment: "Not built yet - placeholder card for the demo-sites task."
 

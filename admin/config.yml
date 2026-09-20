@@ -193,6 +193,8 @@ collections:
                   - { label: "Navy", value: "navy" }
                   - { label: "Red", value: "red" }
               - &narrow { label: "Narrow column", name: "narrow", widget: "boolean", required: false, default: true }
+              - { label: "Feature treatment (accent rule, larger opening line)", name: "feature",
+                  widget: "boolean", required: false, default: false }
               - &center { label: "Centre the heading", name: "center", widget: "boolean", required: false, default: false }
               - *eyebrow
               - { label: "Heading", name: "heading", widget: "string", required: false }
@@ -267,6 +269,12 @@ collections:
                 summary: "{{fields.title}}"
                 fields:
                   - { label: "Card heading", name: "title", widget: "string" }
+                  - label: "Icon"
+                    name: "icon"
+                    widget: "select"
+                    required: false
+                    options: ["", "send", "clock", "key", "shield", "tag", "person", "search", "chat", "check"]
+                    hint: "A small line drawing above the heading. Leave blank for none."
                   - { label: "Red edge (overrides the setting above)", name: "accent", widget: "boolean", required: false }
                   - { label: "Note to future editors", name: "comment", widget: "text", required: false,
                       hint: "Not shown on the page. It appears only in the page's underlying code." }

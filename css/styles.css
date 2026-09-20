@@ -147,10 +147,24 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 /* The ../ is required: paths in a stylesheet resolve from the stylesheet
    itself, not from the page. This file lives in css/, so the images folder
    is one level up. Moving this file means fixing this line. */
-.hero{position:relative;background:var(--navy-deep); /* add url("../images/hero.jpg") center/cover no-repeat once there's a real photo */
+.hero{position:relative;overflow:hidden;background:var(--brand-deep);
   color:var(--on-dark);text-align:center}
+/* Two layers over the base colour, both built from tokens so they follow a
+   rebrand: a soft accent glow off the top-left, and a faint diagonal weave.
+   If a hero photograph is ever added, put it on .hero as
+   url("../images/hero.jpg") center/cover and these still sit on top of it. */
 .hero::before{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(var(--hero-veil),.62),rgba(var(--hero-veil),.82))}
+  background:
+    radial-gradient(60rem 30rem at 15% -10%,
+      color-mix(in srgb, var(--accent) 38%, transparent), transparent 70%),
+    radial-gradient(45rem 28rem at 100% 110%,
+      color-mix(in srgb, var(--highlight) 30%, transparent), transparent 70%),
+    linear-gradient(180deg,rgba(var(--hero-veil),.35),rgba(var(--hero-veil),.72))}
+.hero::after{content:"";position:absolute;inset:0;opacity:.5;
+  background:repeating-linear-gradient(135deg,
+    transparent 0 14px,
+    color-mix(in srgb, var(--on-dark) 4%, transparent) 14px 15px)}
+.hero .wrap{position:relative;z-index:1}
 .hero .wrap{position:relative;padding-block:clamp(3rem,9vw,6.5rem)}
 .hero h1{text-shadow:0 2px 18px rgba(0,0,0,.45);margin-bottom:.35em}
 .hero p{color:var(--on-brand);max-width:660px;margin-inline:auto}
@@ -193,13 +207,29 @@ section{padding-block:clamp(2.6rem,6vw,4.4rem)}
 .band-red h2{color:var(--on-dark)}
 .band-red p{color:var(--on-accent-soft)}
 
+/* ---------- ICONS ---------- */
+/* Drawn as strokes with no fill, so the colour comes from here and follows a
+   rebrand. See _includes/icons.html for the shapes. */
+.icon{display:block;width:2.1rem;height:2.1rem;margin-bottom:.9rem;
+  fill:none;stroke:var(--accent);stroke-width:1.6;
+  stroke-linecap:round;stroke-linejoin:round}
+.center .icon{margin-inline:auto}
+.band-navy .icon,.hero .icon{stroke:var(--accent-pale)}
+/* ...but an icon inside a white card on that band is back on a light
+   surface, so it takes the normal accent again. Same trap as the text
+   colours above. */
+.band-navy .card .icon{stroke:var(--accent)}
+.icon-lg{width:3.2rem;height:3.2rem}
+
 /* ---------- GRID + CARDS ---------- */
 .grid{display:grid;gap:1.4rem}
 .g2{grid-template-columns:repeat(2,1fr)}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
 .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
-  padding:1.5rem;box-shadow:var(--shadow)}
+  padding:1.6rem;box-shadow:var(--shadow);
+  transition:transform .14s ease,box-shadow .14s ease}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
 .card h3{color:var(--navy);margin-bottom:.4rem}
 .card p:last-child{margin-bottom:0}
 .card-accent{border-top:5px solid var(--red)}
@@ -208,6 +238,36 @@ section{padding-block:clamp(2.6rem,6vw,4.4rem)}
 .icard .pad{padding:1.25rem}
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:2.4rem;align-items:center}
 .split img{border-radius:var(--radius);box-shadow:var(--shadow-lg)}
+
+/* ---------- FEATURE PROSE (an About with no photograph) ----------
+   A wide measure of plain text looks unfinished. This gives the section a
+   held-in column, a larger opening line and a rule drawn in the accent, so
+   it reads as designed rather than as a paragraph nobody styled. */
+.band-navy .wrap > .feature,.feature{max-width:46rem;margin-inline:auto}
+.feature .eyebrow{margin-bottom:.9rem}
+.feature h2::after{content:"";display:block;width:3.5rem;height:3px;
+  margin:.85rem 0 0;border-radius:2px;background:var(--accent)}
+.feature.center h2::after{margin-inline:auto}
+.band-navy .feature h2::after{background:var(--accent-pale)}
+.feature > p:first-of-type{font-size:1.16rem;line-height:1.6}
+
+/* ---------- MOCKUP ILLUSTRATION ----------
+   Every shape is filled from a token, so the drawing rebrands with the site
+   instead of being stranded in the old palette - which is the whole reason
+   it is drawn inline rather than saved as an image file. */
+.mock{display:block;width:100%;max-width:44rem;height:auto;margin:2.2rem auto 0;
+  filter:drop-shadow(0 18px 38px rgba(0,0,0,.16))}
+.mock-frame{fill:var(--paper);stroke:var(--line);stroke-width:1.5}
+.mock-bar{fill:var(--brand)}
+.mock-dot{fill:var(--on-brand-soft);opacity:.75}
+.mock-url{fill:var(--on-dark);opacity:.18}
+.mock-hero{fill:var(--brand-deep)}
+.mock-head{fill:var(--on-dark);opacity:.92}
+.mock-sub{fill:var(--on-brand-soft);opacity:.8}
+.mock-cta{fill:var(--accent)}
+.mock-line{fill:var(--ink);opacity:.16}
+.mock-card{fill:var(--cream);stroke:var(--line);stroke-width:1.5}
+.mock-ico{fill:none;stroke:var(--accent);stroke-width:2}
 
 /* ---------- FACT LISTS / TABLES ---------- */
 .facts{list-style:none;margin:0;padding:0}
