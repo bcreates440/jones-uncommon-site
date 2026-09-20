@@ -1,0 +1,32 @@
+# ===========================================================================
+#  THE FACTS THAT APPEAR EVERYWHERE
+#
+#  Change something here and it changes on every page at once - the footer,
+#  the buttons, and the data Google reads.
+#
+#  Anything in here can also be edited in the website editor at /admin/
+#  under "Site-wide details".
+# ===========================================================================
+
+org_name:   "Jones Uncommon"
+org_blurb:  "Simple, affordable websites you own."
+
+# --- how people reach them --------------------------------------------------
+# TODO(Blake): real mailing address if you want one published, or replace
+# with a service-area line like "Serving Wyoming and beyond" - remote-first
+# businesses often skip a street address entirely.
+address:      "PLACEHOLDER - Serving Wyoming and beyond (remote-first; add a real address here only if you want one published)"
+# TODO(Blake): real inbox once jonesuncommon.com exists (or use one now).
+email:        "hello@jonesuncommon.com"
+
+# TODO(Blake): real number. Written out for people, and again in the format
+# a phone can dial (with +1). BOTH must be changed together.
+phone:        "PLACEHOLDER - add your number"
+phone_dial:   "+10000000000"
+
+# --- elsewhere on the web ----------------------------------------------------
+facebook:     ""
+instagram:    ""
+
+# --- the picture used when a link is shared on Facebook etc. ----------------
+share_image:  "images/logo.png"

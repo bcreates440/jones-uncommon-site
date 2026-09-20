@@ -1,0 +1,60 @@
+---
+slug: start
+permalink: /start.html
+title: "Get a free quote — Jones Uncommon"
+description: "Tell us about your organization and what you need. A quick free call gets you a real quote — no obligation, no agency runaround."
+jsonld: false
+blocks:
+  - type: pagehead
+    eyebrow: "Start here"
+    heading: "Let's talk about your site"
+    intro: "Fill this in and we'll set up a free call. You'll walk away with a real quote, not a sales pitch."
+
+  - type: raw
+    html: |
+      <section class="band-paper">
+        <div class="wrap" style="max-width:640px;margin:0 auto;">
+          <!--
+            TODO(Blake): this form has no backend yet - there is no server on
+            this stack by design (GitHub Pages + Cloudflare Worker for login
+            only). Pick a static-form service (Formspree, Getform, etc.),
+            create a free account, and replace FORM_ENDPOINT_HERE below with
+            the real endpoint it gives you. Until then this form will not
+            actually send anywhere.
+          -->
+          <form action="https://formspree.io/f/FORM_ENDPOINT_HERE" method="POST" style="display:grid;gap:1rem;">
+            <label>Name
+              <input type="text" name="name" required style="width:100%;padding:.6rem;border:1px solid var(--line);border-radius:6px;">
+            </label>
+            <label>Organization / business
+              <input type="text" name="organization" required style="width:100%;padding:.6rem;border:1px solid var(--line);border-radius:6px;">
+            </label>
+            <label>Email
+              <input type="email" name="email" required style="width:100%;padding:.6rem;border:1px solid var(--line);border-radius:6px;">
+            </label>
+            <label>What do you do?
+              <textarea name="what_they_do" rows="2" style="width:100%;padding:.6rem;border:1px solid var(--line);border-radius:6px;"></textarea>
+            </label>
+            <label>What do you need?
+              <textarea name="what_they_need" rows="3" style="width:100%;padding:.6rem;border:1px solid var(--line);border-radius:6px;"></textarea>
+            </label>
+            <label>Timeline
+              <input type="text" name="timeline" placeholder="e.g. no rush / within a month / ASAP" style="width:100%;padding:.6rem;border:1px solid var(--line);border-radius:6px;">
+            </label>
+            <label>Do you have content ready (text, photos)?
+              <select name="content_ready" style="width:100%;padding:.6rem;border:1px solid var(--line);border-radius:6px;">
+                <option>Yes, ready to send</option>
+                <option>Mostly, needs some pulling together</option>
+                <option>Not yet</option>
+              </select>
+            </label>
+            <button type="submit" class="btn btn-primary">Get my free quote</button>
+          </form>
+        </div>
+      </section>
+
+  - type: prose
+    band: cream
+    center: true
+    body: "Already a client? [Pay an invoice or manage your plan](mailto:hello@jonesuncommon.com?subject=Account) — PLACEHOLDER until Stripe billing/customer portal is wired up."
+---

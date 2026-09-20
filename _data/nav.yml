@@ -1,0 +1,17 @@
+# The links along the top of every page, and the "Explore" list in the
+# footer. Drag to reorder in the editor. A page added here must already
+# exist in _content/.
+items:
+  - slug: index
+    url: index.html
+    label: Home
+  - slug: work
+    url: work.html
+    label: Work
+  - slug: services
+    url: services.html
+    label: Services
+  - slug: start
+    url: start.html
+    label: Start
+    footer: "Get a free quote"
