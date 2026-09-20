@@ -27,6 +27,7 @@
   /* ---- DERIVED: text and tints that sit ON the brand/accent colours.
      These used to be hardcoded hexes, so they stayed navy-blue no matter what
      the brand colour was. Now they move with the brand. ---- */
+  --on-dark:#FFFFFF;         /* text/icons on any dark surface - warm it if pure white feels clinical */
   --on-brand:#EFEAE4;        /* body text on a brand band */
   --on-brand-soft:#BCAFA9;   /* muted text on a brand band */
   --on-brand-faint:#8F817D;  /* the legal line in the footer */
@@ -74,7 +75,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 .eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;
   font-size:.78rem;color:var(--red);margin:0 0 .6rem}
 .lede{font-size:1.15rem;color:var(--ink-soft)}
-.skip{position:absolute;left:-9999px;top:0;background:var(--red);color:#fff;
+.skip{position:absolute;left:-9999px;top:0;background:var(--red);color:var(--on-dark);
   padding:.7rem 1rem;z-index:200}
 .skip:focus{left:0}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
@@ -86,14 +87,14 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
   text-decoration:none;border:2px solid transparent;cursor:pointer;
   transition:transform .12s ease,background .12s ease,box-shadow .12s ease}
 .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
-.btn-primary{background:var(--red);color:#fff}
-.btn-primary:hover{background:var(--red-dark);color:#fff}
-.btn-navy{background:var(--navy);color:#fff}
-.btn-navy:hover{background:var(--navy-2);color:#fff}
-.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
-.btn-ghost:hover{background:rgba(255,255,255,.14);color:#fff}
+.btn-primary{background:var(--red);color:var(--on-dark)}
+.btn-primary:hover{background:var(--red-dark);color:var(--on-dark)}
+.btn-navy{background:var(--navy);color:var(--on-dark)}
+.btn-navy:hover{background:var(--navy-2);color:var(--on-dark)}
+.btn-ghost{background:transparent;color:var(--on-dark);border-color:rgba(255,255,255,.6)}
+.btn-ghost:hover{background:rgba(255,255,255,.14);color:var(--on-dark)}
 .btn-outline{background:transparent;color:var(--navy);border-color:var(--navy)}
-.btn-outline:hover{background:var(--navy);color:#fff}
+.btn-outline:hover{background:var(--navy);color:var(--on-dark)}
 .btn-row{display:flex;flex-wrap:wrap;gap:.8rem}
 .btn-row.center{justify-content:center}
 .btn-note{font-size:.9rem;color:var(--ink-soft);margin:.8rem 0 0}
@@ -104,7 +105,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
   border-bottom:3px solid var(--red)}
 .hbar{display:flex;align-items:center;gap:1rem;
   max-width:var(--wrap);margin:0 auto;padding:.6rem var(--gutter)}
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:#fff;
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--on-dark);
   margin-right:auto}
 .brand img{width:52px;height:52px;flex:none}
 .brand b{display:block;font-family:var(--display);font-size:1.02rem;
@@ -112,14 +113,14 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 .brand span{display:block;font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;
   color:var(--on-brand-soft)}
 .nav-toggle{position:absolute;opacity:0;width:1px;height:1px}
-.nav-label{display:none;color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;
+.nav-label{display:none;color:var(--on-dark);font-size:1.6rem;line-height:1;cursor:pointer;
   padding:.4rem .7rem;border:1px solid rgba(255,255,255,.35);border-radius:8px;
   min-height:44px;align-items:center}
 .nav-toggle:focus-visible + .nav-label{outline:3px solid var(--gold);outline-offset:2px}
 .nav a{color:var(--on-brand);text-decoration:none;font-size:.93rem;padding:.55rem .6rem;
   border-radius:6px;display:block}
-.nav a:hover{background:rgba(255,255,255,.12);color:#fff}
-.nav a[aria-current="page"]{color:#fff;box-shadow:inset 0 -3px 0 var(--red)}
+.nav a:hover{background:rgba(255,255,255,.12);color:var(--on-dark)}
+.nav a[aria-current="page"]{color:var(--on-dark);box-shadow:inset 0 -3px 0 var(--red)}
 .nav ul{display:flex;align-items:center;gap:.15rem;list-style:none;margin:0;padding:0}
 .nav .btn{margin-left:.5rem;min-height:42px;padding:.55rem 1rem;font-size:.82rem}
 
@@ -128,18 +129,18 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
    itself, not from the page. This file lives in css/, so the images folder
    is one level up. Moving this file means fixing this line. */
 .hero{position:relative;background:var(--navy-deep); /* add url("../images/hero.jpg") center/cover no-repeat once there's a real photo */
-  color:#fff;text-align:center}
+  color:var(--on-dark);text-align:center}
 .hero::before{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(var(--hero-veil),.62),rgba(var(--hero-veil),.82))}
 .hero .wrap{position:relative;padding-block:clamp(3rem,9vw,6.5rem)}
 .hero h1{text-shadow:0 2px 18px rgba(0,0,0,.45);margin-bottom:.35em}
 .hero p{color:var(--on-brand);max-width:660px;margin-inline:auto}
-.datebadge{display:inline-block;background:var(--red);color:#fff;font-family:var(--display);
+.datebadge{display:inline-block;background:var(--red);color:var(--on-dark);font-family:var(--display);
   text-transform:uppercase;letter-spacing:.09em;font-size:clamp(.95rem,2.2vw,1.2rem);
   padding:.55rem 1.3rem;border-radius:999px;margin-bottom:1.1rem}
 .hero-sub{font-family:var(--display);text-transform:uppercase;letter-spacing:.06em;
-  font-size:clamp(1rem,2.4vw,1.35rem);color:#fff;margin-bottom:1.6rem}
-.pagehead{background:var(--navy);color:#fff;text-align:center}
+  font-size:clamp(1rem,2.4vw,1.35rem);color:var(--on-dark);margin-bottom:1.6rem}
+.pagehead{background:var(--navy);color:var(--on-dark);text-align:center}
 .pagehead .wrap{padding-block:clamp(2.2rem,5vw,3.4rem)}
 .pagehead p{color:var(--on-brand-soft);max-width:700px;margin-inline:auto}
 .pagehead .eyebrow{color:var(--accent-pale)}
@@ -148,8 +149,8 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 section{padding-block:clamp(2.6rem,6vw,4.4rem)}
 .band-paper{background:var(--paper)}
 .band-cream{background:var(--cream)}
-.band-navy{background:var(--navy);color:#fff}
-.band-navy h2,.band-navy h3{color:#fff}
+.band-navy{background:var(--navy);color:var(--on-dark)}
+.band-navy h2,.band-navy h3{color:var(--on-dark)}
 .band-navy p{color:var(--on-brand-soft)}
 .band-navy .eyebrow{color:var(--accent-pale)}
 /* Light surfaces sitting inside a navy band keep dark text, or they become
@@ -164,13 +165,13 @@ section{padding-block:clamp(2.6rem,6vw,4.4rem)}
 /* Brand red on navy fails contrast, so links directly on a navy background go
    pale pink. Links inside a white card on that band stay red. */
 .band-navy a:not(.btn),.pagehead a:not(.btn),.hero a:not(.btn){color:var(--on-brand-link)}
-.band-navy a:not(.btn):hover,.pagehead a:not(.btn):hover,.hero a:not(.btn):hover{color:#fff}
+.band-navy a:not(.btn):hover,.pagehead a:not(.btn):hover,.hero a:not(.btn):hover{color:var(--on-dark)}
 .band-navy .card a:not(.btn),.band-navy .note a:not(.btn),
 .band-navy .person a:not(.btn){color:var(--red)}
 .band-navy .card a:not(.btn):hover,.band-navy .note a:not(.btn):hover,
 .band-navy .person a:not(.btn):hover{color:var(--red-dark)}
-.band-red{background:var(--red);color:#fff}
-.band-red h2{color:#fff}
+.band-red{background:var(--red);color:var(--on-dark)}
+.band-red h2{color:var(--on-dark)}
 .band-red p{color:var(--on-accent-soft)}
 
 /* ---------- GRID + CARDS ---------- */
@@ -197,12 +198,12 @@ section{padding-block:clamp(2.6rem,6vw,4.4rem)}
 .facts b{font-family:var(--display);text-transform:uppercase;letter-spacing:.05em;
   font-size:.82rem;color:var(--navy);min-width:150px;flex:none;padding-top:.15rem}
 .band-navy .facts li{border-color:rgba(255,255,255,.18)}
-.band-navy .facts b{color:#fff}
+.band-navy .facts b{color:var(--on-dark)}
 .tablewrap{overflow-x:auto}
 table{border-collapse:collapse;width:100%;min-width:460px;background:var(--paper)}
 caption{text-align:left;font-size:.9rem;color:var(--ink-soft);padding-bottom:.6rem}
 th,td{padding:.85rem 1rem;border-bottom:1px solid var(--line);text-align:left}
-th{background:var(--navy);color:#fff;font-family:var(--display);font-size:.82rem;
+th{background:var(--navy);color:var(--on-dark);font-family:var(--display);font-size:.82rem;
   text-transform:uppercase;letter-spacing:.06em}
 tbody tr:nth-child(even){background:var(--stripe)}
 
@@ -210,7 +211,7 @@ tbody tr:nth-child(even){background:var(--stripe)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;text-align:center}
 .stat b{display:block;font-family:var(--display);font-size:clamp(1.9rem,4.6vw,2.9rem);
   color:var(--red);line-height:1}
-.band-navy .stat b{color:#fff}
+.band-navy .stat b{color:var(--on-dark)}
 .stat span{display:block;font-size:.88rem;letter-spacing:.05em;text-transform:uppercase;
   color:var(--ink-soft);margin-top:.35rem}
 .band-navy .stat span{color:var(--on-brand-soft)}
@@ -252,13 +253,14 @@ tbody tr:nth-child(even){background:var(--stripe)}
 
 /* ---------- FOOTER ---------- */
 .site-footer{background:var(--navy);color:var(--on-brand-soft);padding-block:3rem 1.5rem;font-size:.95rem}
-.site-footer h3{color:#fff;font-size:.86rem;text-transform:uppercase;letter-spacing:.11em;
+.site-footer h3{color:var(--on-dark);font-size:.86rem;text-transform:uppercase;letter-spacing:.11em;
   margin-bottom:.9rem}
 .site-footer a{color:var(--on-brand);text-decoration:none}
-.site-footer a:hover{color:#fff;text-decoration:underline}
+.site-footer a:hover{color:var(--on-dark);text-decoration:underline}
 .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2rem}
 .fgrid ul{list-style:none;margin:0;padding:0}
 .fgrid li{margin-bottom:.45rem}
+.fbrand strong{color:var(--on-dark)}
 .fbrand img{width:74px;height:74px;margin-bottom:.8rem}
 .legal{border-top:1px solid rgba(255,255,255,.16);margin-top:2.2rem;padding-top:1.3rem;
   display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:space-between;
@@ -297,5 +299,5 @@ tbody tr:nth-child(even){background:var(--stripe)}
 }
 @media print{
   .site-header,.site-footer,.btn,.nav{display:none!important}
-  body{background:#fff;font-size:12pt}
+  body{background:var(--paper);font-size:12pt}
 }
