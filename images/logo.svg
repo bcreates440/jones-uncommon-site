@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Jones Uncommon">
+  <!-- Stopgap mark. A browser window: the rust bar is the chrome, the pale
+       shapes below are content. Drawn from the site's own palette (brand
+       slate #2D3142, accent rust #A33B20) so it sits with everything else,
+       and kept simple enough to stay legible at 16px as a favicon.
+       A placeholder for a real commissioned mark, not a finished identity. -->
+  <rect width="64" height="64" rx="13" fill="#2D3142"/>
+  <rect x="13" y="15" width="38" height="34" rx="5" fill="#F4F4F5"/>
+  <path d="M13 20a5 5 0 0 1 5-5h28a5 5 0 0 1 5 5v4.5H13z" fill="#A33B20"/>
+  <circle cx="18.5" cy="19.75" r="1.5" fill="#F4F4F5" opacity=".85"/>
+  <rect x="19" y="31" width="19" height="3.6" rx="1.8" fill="#2D3142" opacity=".30"/>
+  <rect x="19" y="39" width="26" height="3.6" rx="1.8" fill="#2D3142" opacity=".17"/>
+</svg>
