@@ -4,7 +4,7 @@ Project handoff / reference sheet. Last verified 2026-09-20.
 
 Jones Uncommon — DBA under Jones Uncommon LLC. The provider's own site,
 built on the same stack sold to clients, and used as the flagship demo.
-Static site on GitHub Pages, edited through a Decap CMS panel, signed in
+Static site on GitHub Pages, edited through a Sveltia CMS panel, signed in
 via a Cloudflare Worker shared across every client site's editor — see
 [client-sites-auth](https://github.com/bcreates440/client-sites-auth).
 Built from [client-site-template](https://github.com/bcreates440/client-site-template).
@@ -123,7 +123,7 @@ bundle exec jekyll serve
 
 Same rules as every site built on this stack:
 
-- **Rule #1 — Decap deletes what its schema doesn't know about.** The editor
+- **Rule #1 — Sveltia deletes what its schema doesn't know about.** The editor
   rewrites a whole page from `admin/config.yml`'s field list every save. Add
   a field by hand without adding it there too, and it gets silently thrown
   away on the next editor save. `check.rb` catches this — run it after any
@@ -142,7 +142,7 @@ Same rules as every site built on this stack:
 - **Buttons can pull their address from `_data/site.yml`** via `link:`
   (e.g. `link: phone_href`) instead of a hardcoded `url:`. Keeps the number in
   one place. (`link` was supported by `buttons.html` but missing from
-  `admin/config.yml`, so Decap silently deleted it on save — fixed here and
+  `admin/config.yml`, so Sveltia silently deleted it on save — fixed here and
   upstream in `client-site-template` on 2026-09-20.)
 - **Every colour comes from a `:root` token, and `check.rb` enforces it.**
   Write a colour anywhere else — including an inline `style=` in a page — and
