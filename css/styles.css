@@ -30,8 +30,15 @@
      Must clear 4.5:1 against --cream, because links are body-text sized. */
   --accent:#A33B20; --accent-dark:#7E2D18;
 
-  /* --highlight: focus rings and the "attention" callout. */
+  /* --highlight: the "attention" callout tint. It is a SURFACE colour, not an
+     indicator colour - it is not contrasty enough to draw a focus ring with. */
   --highlight:#4F5D75;
+
+  /* --focus: the keyboard focus ring. White core + near-black halo, so the
+     same ring stays visible on dark bands, the red CTA band, and paper alike.
+     White reaches 12.89:1 on --brand and 6.55:1 on --accent; the halo carries
+     it on light surfaces at 13.79:1 on --cream. */
+  --focus:#FFFFFF; --focus-halo:#21242F;
 
   /* ---- SURFACES + TEXT ---- */
   --cream:#F1F2F2; --paper:#FFFFFF;
@@ -97,7 +104,13 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
 .skip{position:absolute;left:-9999px;top:0;background:var(--red);color:var(--on-dark);
   padding:.7rem 1rem;z-index:200}
 .skip:focus{left:0}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+/* Two-tone focus ring: a light core with a dark halo, so one rule stays
+   visible on every surface. --highlight was being reused here, but it only
+   reaches 1.94:1 on --brand and 1.02:1 on the red CTA band - effectively
+   invisible, and WCAG 2.4.11 wants 3:1. Don't darken --highlight to fix it;
+   it also tints --alert-bg and .mock-check-ring. */
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;
+  box-shadow:0 0 0 6px var(--focus-halo)}
 
 /* ---------- BUTTONS ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
@@ -131,7 +144,11 @@ hr{border:0;border-top:1px solid var(--line);margin:2.5rem 0}
   font-weight:var(--display-weight);line-height:1.1}
 .brand span{display:block;font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;
   color:var(--on-brand-soft)}
+/* The checkbox drives the mobile menu. Above 820px its label is display:none
+   and the nav is already open, so leaving the checkbox in the tab order puts
+   an invisible control that does nothing at tab stop 2 on desktop. */
 .nav-toggle{position:absolute;opacity:0;width:1px;height:1px}
+@media (min-width:821px){.nav-toggle{display:none}}
 .nav-label{display:none;color:var(--on-dark);font-size:1.6rem;line-height:1;cursor:pointer;
   padding:.4rem .7rem;border:1px solid rgba(255,255,255,.35);border-radius:8px;
   min-height:44px;align-items:center}
