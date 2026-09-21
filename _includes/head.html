@@ -26,10 +26,5 @@
 {%- if page.jsonld %}
 {% case page.slug %}
   {%- when 'index' %}{% include jsonld/index.html %}
-  {%- when 'show' %}{% include jsonld/show.html %}
-  {%- when 'vendors' %}{% include jsonld/vendors.html %}
-  {%- when 'membership' %}{% include jsonld/membership.html %}
-  {%- when 'about' %}{% include jsonld/about.html %}
-  {%- when 'contact' %}{% include jsonld/contact.html %}
 {% endcase %}
 {%- endif %}

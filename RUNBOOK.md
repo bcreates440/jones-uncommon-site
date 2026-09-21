@@ -62,7 +62,7 @@ Same path whether the commit comes from the editor or from a manual
 
 ```
 jones-uncommon-site/
-├── _content/          the 4 pages — front matter + section "blocks"
+├── _content/          the pages — front matter + section "blocks"
 ├── _data/              site.yml, team.yml, nav.yml — shared facts
 ├── _includes/         header, footer, block templates, jsonld
 ├── _layouts/          page.html — the one shell every page uses
@@ -74,9 +74,19 @@ jones-uncommon-site/
 ├── RUNBOOK.md          this file — in git, excluded from the built site
 ```
 
-The 4 pages: Home (`index.html`), Work (`work.html`), Services
-(`services.html`), Contact (`contact.html`) — see `_data/nav.yml`.
-`fonts/` holds the self-hosted heading font and its licence.
+The 4 nav pages: Home (`index.html`), Work (`work.html`), Services
+(`services.html`), Contact (`contact.html`) — see `_data/nav.yml`. Three more
+pages exist outside the nav, linked only from Work's "Demo sites" cards:
+`demo-business.html`, `demo-club.html`, and `demo-event.html` — fictional
+example builds that show off the block system (including the 5 blocks added
+2026-09-20: `testimonials`, `faq`, `trustbar`, `beforeafter`, `hours`), not
+real clients. `fonts/` holds the self-hosted heading font and its licence.
+
+Homepage-only JSON-LD (`jsonld: true` on `index.html`) renders
+`_includes/jsonld/index.html`, an Organization schema built from
+`_data/site.yml`. The `page.jsonld` switch in `head.html` only has an
+`index` case — add a matching `_includes/jsonld/<slug>.html` before turning
+it on for another page, or it silently does nothing.
 
 ---
 

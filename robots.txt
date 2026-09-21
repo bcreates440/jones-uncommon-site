@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://bcreates440.github.io/jones-uncommon-site/sitemap.xml

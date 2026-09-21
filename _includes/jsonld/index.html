@@ -1,0 +1,18 @@
+{%- comment -%}
+  Organization structured data for the homepage - only facts already public
+  in _data/site.yml and the footer. No address (the business is deliberately
+  remote-first), no aggregateRating or review data (none exists).
+{%- endcomment -%}
+{%- assign s = site.data.site -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ s.org_name }}",
+  "url": "{{ site.url }}/",
+  "logo": "{{ site.url }}/{{ s.share_image }}",
+  "description": "{{ s.org_blurb }}",
+  "email": "{{ s.email }}",
+  "telephone": "{{ s.phone_dial }}"
+}
+</script>

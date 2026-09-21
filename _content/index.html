@@ -3,7 +3,7 @@ slug: index
 permalink: /index.html
 title: "Jones Uncommon — Simple, affordable websites you own"
 description: "Clean, fast websites for small orgs and local businesses. You own it, no monthly software fees, built by a real person. Get a free quote."
-jsonld: false
+jsonld: true
 blocks:
   - type: hero
     heading: "Simple, affordable<br>websites you own."
@@ -52,7 +52,7 @@ blocks:
     cards:
       - title: "You own it"
         icon: "shield"
-        body: "Your own GitHub account, MIT license, no lock-in. Leave anytime and keep the whole site."
+        body: "Your own GitHub account, MIT license, no lock-in. Stop working with me anytime and the site keeps working, exactly as it was — nothing to migrate, nothing that breaks."
       - title: "No monthly software fees"
         icon: "tag"
         body: "Free, open hosting — no surprise hosting or security bills landing in your inbox."
@@ -65,6 +65,12 @@ blocks:
       - title: "Straight answers, fast"
         icon: "chat"
         body: "A quick free call gets you a real quote. No agency runaround."
+
+  - type: prose
+    band: paper
+    narrow: true
+    center: true
+    body: "**\"No monthly software fees\" means exactly that** — no website-builder subscription, no hosting bill, no per-seat editor cost. A domain name (bought from a registrar, not from me) or a professional email inbox are the only things you might still pay for — both optional, and both yours either way."
 
   - type: prose
     band: cream
@@ -98,10 +104,12 @@ blocks:
       The Wyoming Weapons Collectors Association had an outdated site their
       board had no way to update. Now any board member can change it in a
       minute — and it scores a perfect 100 across every category in Google's
-      own audit.
+      own audit on desktop.
     facts:
-      - term: "Google Lighthouse"
-        detail: "100 performance · 100 accessibility · 100 best practices · 100 SEO"
+      - term: "Google Lighthouse (desktop)"
+        detail: "100 performance · 100 accessibility · 100 best practices · 100 SEO — tested 2026-09-20"
+      - term: "Google Lighthouse (mobile)"
+        detail: "98 performance · 100 accessibility · 100 best practices · 100 SEO — tested 2026-09-20"
       - term: "Six pages"
         detail: "All of them editable by the client, without a developer"
       - term: "Running cost"
@@ -112,10 +120,35 @@ blocks:
   - type: stats
     band: cream
     stats:
-      - { figure: "100", label: "Google Lighthouse score" }
+      - { figure: "100", label: "Google Lighthouse score (desktop)" }
       - { figure: "$0", label: "Monthly software fees" }
       - { figure: "MIT", label: "Open licence, yours to keep" }
       - { figure: "1", label: "Person you actually talk to" }
+
+  - type: faq
+    band: paper
+    narrow: true
+    eyebrow: "Questions"
+    heading: "Before you reach out"
+    items:
+      - q: "How much does a website cost?"
+        a: "Every project gets a fixed price after a free call, not a generic number up front — it depends on what you're starting with and what you need. No surprise invoices after the quote."
+      - q: "How long does it take?"
+        a: "Most sites go from your content to a live site in days, not weeks or months."
+      - q: "Do I need to provide the content?"
+        a: "You need to send me *something* — an old site, a Facebook page, a Word doc, photos, or just a phone call. It doesn't need to be polished first."
+      - q: "Can I update the site myself afterward?"
+        a: "Yes — every site includes a simple built-in editor. No code, no developer required for normal changes."
+      - q: "What does \"I own the website\" actually mean?"
+        a: "The site lives on your own GitHub account under an open (MIT) license. It's not rented from me or from a platform — it's yours."
+      - q: "What happens if I stop working with Jones Uncommon?"
+        a: "Nothing breaks. The site keeps running exactly as it was, on your own account, under your own license. There's nothing to migrate and nothing that gets shut off."
+      - q: "Is hosting really $0 a month?"
+        a: "Yes — no website-builder subscription and no hosting bill. A domain name or a professional email inbox are the only things you might still pay for, and both are optional."
+      - q: "Can you build forms, online payments, or event registration?"
+        a: "Forms are handled through a free third-party service you own the account for — not self-hosted, so there's no server to maintain. Online payments are available as an add-on via a hosted checkout, wired in after the core site is built. Ask about your specific need on the call."
+      - q: "Can you redesign my existing website?"
+        a: "Yes — most projects start from an existing site's content and photos, rebuilt from scratch rather than patched."
 
   - type: cta
     band: red

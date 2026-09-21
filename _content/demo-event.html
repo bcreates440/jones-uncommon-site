@@ -1,0 +1,86 @@
+---
+slug: demo-event
+permalink: /demo-event.html
+title: "Demo: annual event — Jones Uncommon"
+description: "A fictional annual-event site, built to show the block system used for real Jones Uncommon client sites."
+jsonld: false
+blocks:
+  - type: prose
+    band: cream
+    narrow: true
+    center: true
+    eyebrow: "Demo template"
+    heading: "This page is a demo, not a real event"
+    body: |
+      Everything below — the name, the dates, the numbers — is placeholder
+      content built to show how an annual event or show comes together: a
+      hero, a trust bar, the schedule, hours, and an FAQ covering tickets
+      and parking. A real build swaps every word and photo for yours.
+    buttons:
+      - { label: "Get a site like this", url: "contact.html", style: primary }
+
+  - type: hero
+    badge: "September 12–13, 2026 · Example County Fairgrounds"
+    heading: "Example County Harvest Festival"
+    subheading: "Two days, one weekend, the whole county shows up"
+    intro: "Live music, food vendors, a kids' zone, and the county's biggest craft fair — every September."
+    buttons:
+      - { label: "Get Tickets", url: "contact.html", style: primary }
+      - { label: "See the Schedule", url: "#schedule", style: navy }
+    note: "Advance tickets recommended — last year sold out both days"
+
+  - type: trustbar
+    band: navy
+    items:
+      - label: "September 12–13, 2026"
+      - label: "Example County Fairgrounds"
+      - label: "40+ vendors"
+      - label: "Free parking & shuttle"
+
+  - type: cards
+    band: cream
+    center: true
+    columns: g3
+    id: schedule
+    eyebrow: "Schedule"
+    heading: "What's happening each day"
+    cards:
+      - title: "Craft & vendor fair"
+        icon: "tag"
+        body: "40-plus local vendors, open both days, 9am to 6pm."
+      - title: "Live music"
+        icon: "chat"
+        body: "Local bands take the main stage Friday evening and all day Saturday."
+      - title: "Kids' zone"
+        icon: "person"
+        body: "Games, a petting zoo, and face painting — free with admission."
+
+  - type: hours
+    band: paper
+    narrow: true
+    heading: "Gate hours"
+    rows:
+      - { day: "Friday, Sept 12", time: "4pm – 9pm" }
+      - { day: "Saturday, Sept 13", time: "9am – 6pm" }
+    note: "Vendor booths and the kids' zone close 30 minutes before the gate."
+
+  - type: faq
+    band: cream
+    narrow: true
+    eyebrow: "Questions"
+    heading: "Before you come"
+    items:
+      - q: "Do I need to buy tickets in advance?"
+        a: "Advance tickets are recommended — last year's festival sold out both days. Tickets are also available at the gate, while they last."
+      - q: "Is parking included?"
+        a: "Yes — parking and the shuttle to the fairgrounds entrance are both free with admission."
+      - q: "Is the event kid-friendly?"
+        a: "Yes — the kids' zone runs both days and is free with paid admission."
+
+  - type: cta
+    band: red
+    heading: "Running an event like this?"
+    lede: "This exact block system — hero, trust bar, schedule, hours, FAQ — is what every Jones Uncommon client site is built from."
+    buttons:
+      - { label: "Get a free quote", url: "contact.html", style: navy }
+---
