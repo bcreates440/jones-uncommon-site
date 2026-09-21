@@ -8,21 +8,157 @@ blocks:
   - type: hero
     heading: "Simple, affordable<br>websites you own."
     subheading: "Built fast for small orgs and local businesses — no lock-in, ever."
-    intro: "Send me your content, I build a clean, fast site in days, and it's yours — your GitHub, MIT license, leave anytime and keep it."
+    intro: "Send me your content, and I build a clean, fast site in days — one that actually works on a phone, that someone on your team can update, and that's genuinely yours, not rented from a platform."
     buttons:
       - { label: "Get a free quote", url: "contact.html", style: primary }
       - { label: "See the work", url: "work.html", style: ghost }
 
-  - type: prose
+  - type: cards
     band: paper
     center: true
+    accent: false
+    columns: g3
     eyebrow: "Who this is for"
-    heading: "Small orgs who need a real website, not a headache"
+    heading: "Built for organizations like yours"
+    cards:
+      - title: "Local businesses"
+        icon: "tag"
+        body: "Contractors, shops, and service businesses that need to be found and called, not admired."
+        buttons:
+          - { label: "See a local-business demo", url: "demo-business.html", style: outline }
+      - title: "Clubs & associations"
+        icon: "person"
+        body: "Membership groups run by volunteers who need something the whole board can actually update."
+        buttons:
+          - { label: "See a club demo", url: "demo-club.html", style: outline }
+      - title: "Events & organizations"
+        icon: "clock"
+        body: "Annual shows, expos, and organizations that need schedules and info to stay current without a developer."
+        buttons:
+          - { label: "See an event demo", url: "demo-event.html", style: outline }
+
+  - type: split
+    band: cream
+    eyebrow: "Real client work"
+    heading: "Wyoming Weapons Collectors Association"
+    image: "images/wwca-after.webp"
+    image_width: 1200
+    image_height: 900
+    image_alt: "The rebuilt Wyoming Weapons Collectors Association website, showing a full-width banner with the show name, dates and three buttons."
     body: |
-      Nonprofits, clubs, associations, and local businesses — organizations
-      run by people who have a hundred other things to do and just need a
-      site that works, that someone on the team can actually update, and
-      that doesn't come with a surprise bill every month.
+      An outdated site the board had no way to update, rebuilt into one any
+      board member can change in a minute — six pages, fully editable, and a
+      perfect Lighthouse score on desktop.
+    buttons:
+      - { label: "Read the full case study", url: "work.html", style: primary }
+
+  - type: cards
+    band: paper
+    center: true
+    columns: g3
+    eyebrow: "Example builds"
+    heading: "See what your site could look like"
+    cards:
+      - title: "Cedar & Sage Landscaping"
+        image: "images/demo-business-hero.webp"
+        image_width: 1200
+        image_height: 503
+        image_alt: "The homepage of the fictional Cedar & Sage Landscaping demo site: a dark hero banner with the business name, a badge reading 'Serving Example County', and two buttons."
+        body: "Fictional local business — hero, trust bar, services, reviews, hours, FAQ."
+        buttons:
+          - { label: "View demo", url: "demo-business.html", style: outline }
+      - title: "Trailhead Hiking Club"
+        image: "images/demo-club-hero.webp"
+        image_width: 1200
+        image_height: 479
+        image_alt: "The homepage of the fictional Trailhead Hiking Club demo site: a dark hero banner with the club name and a badge reading 'Est. 2010 - Example County'."
+        body: "Fictional club/association — hero, membership numbers, programs, reviews, FAQ."
+        buttons:
+          - { label: "View demo", url: "demo-club.html", style: outline }
+      - title: "Example County Harvest Festival"
+        image: "images/demo-event-hero.webp"
+        image_width: 1200
+        image_height: 503
+        image_alt: "The homepage of the fictional Example County Harvest Festival demo site: a dark hero banner with the event name and dates."
+        body: "Fictional annual event — hero, trust bar, schedule, hours, FAQ."
+        buttons:
+          - { label: "View demo", url: "demo-event.html", style: outline }
+    callout: "The landscaping business, hiking club, and harvest festival above are fictional — built to demonstrate the site, not real clients."
+
+  - type: cards
+    band: navy
+    center: true
+    accent: true
+    columns: g3
+    eyebrow: "Why Jones Uncommon"
+    heading: "Professional, without the agency overhead"
+    cards:
+      - title: "You own it"
+        icon: "shield"
+        body: "Your own GitHub account, MIT license, no lock-in. Stop working with me anytime and the site keeps working, exactly as it was — nothing to migrate, nothing that breaks."
+      - title: "No monthly software fees"
+        icon: "tag"
+        body: "No website-builder subscription, no hosting bill — just a domain and, if you want one, a professional email inbox."
+      - title: "Affordable, from a real person"
+        icon: "person"
+        body: "A fair price and a direct line to the person who built it. Not a support ticket, not an account manager."
+      - title: "Search-ready from day one"
+        icon: "search"
+        body: "Proper page structure, metadata, and mobile performance built in from the start — the technical SEO foundation, not a marketing campaign."
+      - title: "Straight answers, fast"
+        icon: "chat"
+        body: "A quick free call gets you a real quote. No agency runaround."
+
+  - type: prose
+    band: paper
+    narrow: true
+    center: true
+    eyebrow: "No developer required"
+    heading: "Need to change something? You can do it yourself."
+    body: "Every site ships with a simple built-in editor: open it, change the text or swap a photo, and save — the live site updates immediately. No code, no waiting on a developer for normal changes."
+
+  - type: raw
+    html: |
+      <section class="band-cream">
+        <div class="wrap center">
+          <!-- Drawn, not photographed: illustrates the built-in editor without
+               needing a real login session to screenshot. Every shape is
+               filled from css/styles.css, so it rebrands with the rest of
+               the site. Replace with a real screen recording once one
+               exists - see RUNBOOK.md. -->
+          <svg class="mock" viewBox="0 0 640 400" role="img"
+               aria-label="Illustration of the built-in editor: a browser window showing a page's heading, text and photo on the left, and an editor panel on the right with text fields and a Save button, next to a checkmark showing the change went live.">
+            <rect class="mock-frame" x="8" y="8" width="624" height="384" rx="14"/>
+            <path class="mock-bar" d="M8 22a14 14 0 0114-14h596a14 14 0 0114 14v22H8z"/>
+            <circle class="mock-dot" cx="34" cy="26" r="5"/>
+            <circle class="mock-dot" cx="52" cy="26" r="5"/>
+            <circle class="mock-dot" cx="70" cy="26" r="5"/>
+            <rect class="mock-url" x="92" y="19" width="200" height="14" rx="7"/>
+            <circle class="mock-check-ring" cx="600" cy="26" r="12"/>
+            <path class="mock-check" d="M594 26l4 4 8-9"/>
+
+            <rect class="mock-head" x="52" y="92" width="268" height="18" rx="5"/>
+            <path class="mock-pencil" d="M330 100l9-9 6 6-9 9h-6v-6z"/>
+            <rect class="mock-line" x="52" y="130" width="320" height="10" rx="5"/>
+            <rect class="mock-line" x="52" y="150" width="260" height="10" rx="5"/>
+            <rect class="mock-card" x="52" y="176" width="336" height="160" rx="9"/>
+
+            <rect class="mock-panel" x="412" y="64" width="200" height="312" rx="10"/>
+            <rect class="mock-field" x="428" y="84" width="168" height="34" rx="6"/>
+            <rect class="mock-field-line" x="440" y="98" width="100" height="8" rx="4"/>
+            <rect class="mock-field" x="428" y="130" width="168" height="34" rx="6"/>
+            <rect class="mock-field-line" x="440" y="144" width="130" height="8" rx="4"/>
+            <rect class="mock-field" x="428" y="176" width="168" height="70" rx="6"/>
+            <rect class="mock-field-line" x="440" y="192" width="140" height="8" rx="4"/>
+            <rect class="mock-field-line" x="440" y="208" width="110" height="8" rx="4"/>
+            <rect class="mock-field" x="428" y="258" width="168" height="52" rx="6"/>
+            <rect class="mock-field-line" x="440" y="279" width="90" height="8" rx="4"/>
+            <rect class="mock-save" x="428" y="332" width="168" height="34" rx="17"/>
+            <text class="mock-save-label" x="512" y="354" text-anchor="middle"
+                  style="font:600 13px var(--ui);letter-spacing:.04em">SAVE</text>
+          </svg>
+        </div>
+      </section>
 
   - type: cards
     band: cream
@@ -40,37 +176,20 @@ blocks:
         body: "A clean, fast, mobile-friendly site goes up on free hosting, built from the content you sent."
       - title: "3. You own it"
         icon: "key"
-        body: "It lives on your own GitHub account under an MIT license. Edit it yourself through a simple built-in editor, anytime."
+        body: "It lives on your own GitHub account under an MIT license. Edit it yourself through the built-in editor, anytime."
 
-  - type: cards
-    band: navy
-    center: true
-    accent: true
-    columns: g3
-    eyebrow: "Why Jones Uncommon"
-    heading: "Cheap and good, not cheap or good"
-    cards:
-      - title: "You own it"
-        icon: "shield"
-        body: "Your own GitHub account, MIT license, no lock-in. Stop working with me anytime and the site keeps working, exactly as it was — nothing to migrate, nothing that breaks."
-      - title: "No monthly software fees"
-        icon: "tag"
-        body: "Free, open hosting — no surprise hosting or security bills landing in your inbox."
-      - title: "Cheap AND a real human"
-        icon: "person"
-        body: "Every alternative is one or the other. Not both."
-      - title: "Found in search"
-        icon: "search"
-        body: "Fast, mobile, and built with solid SEO from day one — not bolted on after."
-      - title: "Straight answers, fast"
-        icon: "chat"
-        body: "A quick free call gets you a real quote. No agency runaround."
-
-  - type: prose
+  - type: stats
     band: paper
-    narrow: true
-    center: true
-    body: "**\"No monthly software fees\" means exactly that** — no website-builder subscription, no hosting bill, no per-seat editor cost. A domain name (bought from a registrar, not from me) or a professional email inbox are the only things you might still pay for — both optional, and both yours either way."
+    eyebrow: "Proof, not just a promise"
+    heading: "Google's own audit, not mine"
+    stats:
+      - { figure: "100", label: "Performance (desktop)" }
+      - { figure: "100", label: "Accessibility" }
+      - { figure: "100", label: "Best Practices" }
+      - { figure: "100", label: "SEO" }
+    buttons:
+      - { label: "See the full results", url: "work.html", style: outline }
+    note: "Wyoming Weapons Collectors Association, tested 2026-09-20. Mobile: 98 performance, 100 the rest."
 
   - type: prose
     band: cream
@@ -82,48 +201,10 @@ blocks:
       already have a full-time job doing something else, and who need a site
       that works without becoming one more thing to manage.
 
-      Most options give you one of two things: cheap software you have to run
+      Most options give you one of two things: software you have to run
       yourself, or a real person who charges like an agency. I wanted to do
-      both. So I build the site properly, hand it over, and stay reachable
-      when something needs changing.
-
-      Your site ends up on your own GitHub account under an open license.
-      Hosting is free and stays free. If you ever decide to walk away, you
-      take the whole thing with you and nothing breaks.
-
-  - type: split
-    band: paper
-    eyebrow: "Proof"
-    heading: "Recent work"
-    image: "images/wwca-after.webp"
-    image_width: 1200
-    image_height: 900
-    image_alt: "The rebuilt Wyoming Weapons Collectors Association website, showing a full-width banner with the show name, dates and three buttons."
-
-    body: |
-      The Wyoming Weapons Collectors Association had an outdated site their
-      board had no way to update. Now any board member can change it in a
-      minute — and it scores a perfect 100 across every category in Google's
-      own audit on desktop.
-    facts:
-      - term: "Google Lighthouse (desktop)"
-        detail: "100 performance · 100 accessibility · 100 best practices · 100 SEO — tested 2026-09-20"
-      - term: "Google Lighthouse (mobile)"
-        detail: "98 performance · 100 accessibility · 100 best practices · 100 SEO — tested 2026-09-20"
-      - term: "Six pages"
-        detail: "All of them editable by the client, without a developer"
-      - term: "Running cost"
-        detail: "$0 a month, and it stays that way"
-    buttons:
-      - { label: "See the case study", url: "work.html", style: primary }
-
-  - type: stats
-    band: cream
-    stats:
-      - { figure: "100", label: "Google Lighthouse score (desktop)" }
-      - { figure: "$0", label: "Monthly software fees" }
-      - { figure: "MIT", label: "Open licence, yours to keep" }
-      - { figure: "1", label: "Person you actually talk to" }
+      both — a site built properly, handed over, with someone reachable when
+      something needs changing.
 
   - type: faq
     band: paper
@@ -132,7 +213,7 @@ blocks:
     heading: "Before you reach out"
     items:
       - q: "How much does a website cost?"
-        a: "Every project gets a fixed price after a free call, not a generic number up front — it depends on what you're starting with and what you need. No surprise invoices after the quote."
+        a: "Every project gets a fixed price after a free call, not a generic number up front — it depends on what you're starting with and what you need. No surprise invoices after the quote, and no fake \"starting at\" number to lure you in."
       - q: "How long does it take?"
         a: "Most sites go from your content to a live site in days, not weeks or months."
       - q: "Do I need to provide the content?"

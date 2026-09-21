@@ -223,6 +223,7 @@ section{padding-block:clamp(2.6rem,6vw,4.4rem)}
 
 /* ---------- GRID + CARDS ---------- */
 .grid{display:grid;gap:1.4rem}
+.grid > *{min-width:0}
 .g2{grid-template-columns:repeat(2,1fr)}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
@@ -234,7 +235,7 @@ section{padding-block:clamp(2.6rem,6vw,4.4rem)}
 .card p:last-child{margin-bottom:0}
 .card-accent{border-top:5px solid var(--red)}
 .icard{padding:0;overflow:hidden}
-.icard img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.icard img{width:100%;aspect-ratio:16/9;object-fit:cover}
 .icard .pad{padding:1.25rem}
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:2.4rem;align-items:center}
 .split img{border-radius:var(--radius);box-shadow:var(--shadow-lg)}
@@ -268,6 +269,14 @@ section{padding-block:clamp(2.6rem,6vw,4.4rem)}
 .mock-line{fill:var(--ink);opacity:.16}
 .mock-card{fill:var(--cream);stroke:var(--line);stroke-width:1.5}
 .mock-ico{fill:none;stroke:var(--accent);stroke-width:2}
+.mock-panel{fill:var(--cream);stroke:var(--line);stroke-width:1.5}
+.mock-field{fill:var(--paper);stroke:var(--line);stroke-width:1.5}
+.mock-field-line{fill:var(--ink);opacity:.16}
+.mock-save{fill:var(--accent)}
+.mock-save-label{fill:var(--on-dark)}
+.mock-pencil{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mock-check-ring{fill:var(--highlight)}
+.mock-check{fill:none;stroke:var(--on-dark);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- FACT LISTS / TABLES ---------- */
 .facts{list-style:none;margin:0;padding:0}
