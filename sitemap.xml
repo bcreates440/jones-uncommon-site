@@ -2,17 +2,17 @@
 <!-- Update <lastmod> when you change a page. Add a <url> block for any new page. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://bcreates440.github.io/jones-uncommon-site/index.html</loc>
-       <lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+       <lastmod>2026-09-21</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
   <url><loc>https://bcreates440.github.io/jones-uncommon-site/work.html</loc>
-       <lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+       <lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://bcreates440.github.io/jones-uncommon-site/services.html</loc>
-       <lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+       <lastmod>2026-09-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://bcreates440.github.io/jones-uncommon-site/contact.html</loc>
-       <lastmod>2026-09-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+       <lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://bcreates440.github.io/jones-uncommon-site/demo-business.html</loc>
-       <lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+       <lastmod>2026-09-21</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://bcreates440.github.io/jones-uncommon-site/demo-club.html</loc>
-       <lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+       <lastmod>2026-09-21</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://bcreates440.github.io/jones-uncommon-site/demo-event.html</loc>
-       <lastmod>2026-09-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+       <lastmod>2026-09-21</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>
