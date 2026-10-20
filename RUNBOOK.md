@@ -10,7 +10,7 @@ via a Cloudflare Worker shared across every client site's editor — see
 [client-sites-auth](https://github.com/bcreates440/client-sites-auth).
 Built from [client-site-template](https://github.com/bcreates440/client-site-template).
 
-**Status:** Moving from GitHub Pages to Cloudflare (2026-10-20) · Domain not registered · Awaiting a headshot
+**Status:** Live on Cloudflare (moved off GitHub Pages 2026-10-20; Pages turned off) · Domain not registered · Awaiting a headshot
 and the WWCA testimonial · Copy is written but unreviewed by Blake
 
 ---
