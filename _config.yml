@@ -1,7 +1,7 @@
 # ===========================================================================
 #  Jekyll settings
 #
-#  GitHub Pages reads this file and builds the site automatically every time
+#  Cloudflare reads this file and builds the site automatically every time
 #  you save a change. There is nothing to run yourself.
 # ===========================================================================
 
@@ -9,12 +9,12 @@
 # social-sharing tags that search engines read.
 #
 # IMPORTANT: leave this pointing at the real domain even while the site is
-# still being previewed at <owner>.github.io. It tells Google that the real
-# domain is the real address, which is what stops the preview copy competing
-# with the real site in search results.
+# still being previewed at its <name>.<account>.workers.dev address. It tells
+# Google that the real domain is the real address, which is what stops the
+# preview copy competing with the real site in search results.
 # TODO: set to jonesuncommon.com once the domain is registered and pointed;
-# leave as the github.io URL until then.
-url: "https://bcreates440.github.io/jones-uncommon-site"
+# leave as the workers.dev URL until then.
+url: "https://jones-uncommon-site.bcreates440.workers.dev"
 baseurl: ""
 
 title: "Jones Uncommon"
@@ -36,6 +36,7 @@ exclude:
   - Gemfile.lock
   - vendor
   - check.rb
+  - wrangler.toml
   - README.md
   - RUNBOOK.md
   - README-EDITING.md

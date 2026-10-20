@@ -31,8 +31,8 @@ media_folder: "images"
 public_folder: "images"
 
 # TODO: set both of these to jonesuncommon.com once the domain is pointed.
-site_url: https://bcreates440.github.io/jones-uncommon-site
-display_url: https://bcreates440.github.io/jones-uncommon-site
+site_url: https://jones-uncommon-site.bcreates440.workers.dev
+display_url: https://jones-uncommon-site.bcreates440.workers.dev
 # Relative, so the sign-in screen shows the logo even before the domain
 # is pointed at this site.
 logo_url: ../images/logo.png

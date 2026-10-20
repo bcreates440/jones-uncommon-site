@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://bcreates440.github.io/jones-uncommon-site/sitemap.xml
+Sitemap: https://jones-uncommon-site.bcreates440.workers.dev/sitemap.xml

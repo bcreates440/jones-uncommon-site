@@ -16,3 +16,6 @@ _site/
 _site/
 desktop.ini
 vendor/
+
+# Wrangler local dev cache
+.wrangler/

@@ -3,15 +3,15 @@
 # exist in _content/.
 items:
   - slug: index
-    url: index.html
+    url: ./
     label: Home
   - slug: work
-    url: work.html
+    url: work
     label: Work
   - slug: services
-    url: services.html
+    url: services
     label: Services
   - slug: contact
-    url: contact.html
+    url: contact
     label: Contact
     footer: "Get in touch"
