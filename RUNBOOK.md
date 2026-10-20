@@ -4,12 +4,13 @@ Project handoff / reference sheet. Last verified 2026-09-20.
 
 Jones Uncommon — DBA under Jones Uncommon LLC. The provider's own site,
 built on the same stack sold to clients, and used as the flagship demo.
-Static site on GitHub Pages, edited through a Sveltia CMS panel, signed in
+Static site hosted on Cloudflare (Workers static assets, built from this
+repo on every push), edited through a Sveltia CMS panel, signed in
 via a Cloudflare Worker shared across every client site's editor — see
 [client-sites-auth](https://github.com/bcreates440/client-sites-auth).
 Built from [client-site-template](https://github.com/bcreates440/client-site-template).
 
-**Status:** Live on GitHub Pages · Domain not registered · Awaiting a headshot
+**Status:** Moving from GitHub Pages to Cloudflare (2026-10-20) · Domain not registered · Awaiting a headshot
 and the WWCA testimonial · Copy is written but unreviewed by Blake
 
 ---
@@ -22,9 +23,10 @@ instead.
 
 | | |
 |---|---|
-| **Live site (current)** | https://bcreates440.github.io/jones-uncommon-site/ |
+| **Live site (current)** | https://jones-uncommon-site.bcreates440.workers.dev/ |
 | **Live site (future)** | jonesuncommon.com — not registered yet |
-| **Editor** | https://bcreates440.github.io/jones-uncommon-site/admin/ |
+| **Editor** | https://jones-uncommon-site.bcreates440.workers.dev/admin/ |
+| **Hosting** | Cloudflare Worker `jones-uncommon-site` (static assets only, no code), built by Workers Builds from `main`. Config in `wrangler.toml`. Why not GitHub Pages: `ops/design/hosting-decision.md` |
 | **GitHub repo** | https://github.com/bcreates440/jones-uncommon-site — public, branch `main` |
 | **OAuth worker** | https://client-sites-auth.bcreates440.workers.dev — shared with other client sites, source at [bcreates440/client-sites-auth](https://github.com/bcreates440/client-sites-auth), not in this repo |
 | **GitHub account** | bcreates440 |
@@ -37,9 +39,11 @@ instead.
 
 ## How it fits together
 
-GitHub Pages hosts and builds the site for free but can't run any code of its
-own — that's the one gap the Cloudflare Worker exists to fill. Everything
-else is standard Jekyll.
+Cloudflare builds the site with Jekyll on every push to `main` and serves the
+result for free. The repo stays on GitHub; only the serving moved off GitHub
+Pages, because Pages isn't allowed to be used as hosting for a paid service.
+The editor's sign-in handshake is a second, separate Cloudflare Worker,
+shared by every client site. Everything else is standard Jekyll.
 
 **Signing in to the editor:**
 
@@ -50,7 +54,7 @@ Editor (/admin/)  →  Worker (client-sites-auth.workers.dev)  →  GitHub (logi
 **Publishing a change:**
 
 ```
-Editor ("Publish")  →  GitHub repo (new commit on main)  →  GitHub Pages (rebuilds, ~1 min)
+Editor ("Publish")  →  GitHub repo (new commit on main)  →  Cloudflare (rebuilds, ~1–2 min)
 ```
 
 Same path whether the commit comes from the editor or from a manual
@@ -108,7 +112,7 @@ A new kind of section, a template change, anything that touches
 1. Edit the files directly
 2. Run `ruby check.rb` — must say `ALL CHECKS PASSED`
 3. `git commit` & `git push`
-4. GitHub Pages rebuilds automatically
+4. Cloudflare rebuilds automatically
 
 **Local preview:**
 
@@ -123,6 +127,11 @@ bundle exec jekyll serve
 
 Same rules as every site built on this stack:
 
+- **Links are extensionless.** The host serves `contact.html` at `/contact`
+  and the homepage at `/`, and redirects a `.html` address there. So write
+  links as `contact` (not `contact.html`) and sitemap entries as
+  `…/contact`. `check.rb` checks both. The `permalink:` in each page's front
+  matter still ends in `.html`; that's the file name, so leave it.
 - **Rule #1 — Sveltia deletes what its schema doesn't know about.** The editor
   rewrites a whole page from `admin/config.yml`'s field list every save. Add
   a field by hand without adding it there too, and it gets silently thrown
@@ -164,9 +173,12 @@ Same rules as every site built on this stack:
 
 ## Pending tasks
 
-- **Domain** — jonesuncommon.com needs registering, then pointing at GitHub
-  Pages. Until then `_config.yml`'s `url` and `admin/config.yml`'s
-  `site_url`/`display_url` stay on the github.io address.
+- **Domain** — register jonesuncommon.com with Cloudflare Registrar (at cost;
+  DNS lands on Cloudflare automatically), then add it as a Custom Domain on
+  the `jones-uncommon-site` Worker. Then switch `_config.yml`'s `url`,
+  `admin/config.yml`'s `site_url`/`display_url`, `robots.txt` and
+  `sitemap.xml` from the workers.dev address. Turn on Email Routing to make
+  `hello@jonesuncommon.com` real.
 - **Headshot** — the About section on the home page is a text-only `prose`
   block on purpose, because a `split` block with an empty `image:` renders a
   broken image. Once there's a real photo: change that block's type to
@@ -218,6 +230,11 @@ Same rules as every site built on this stack:
   changed from "we" to "I" throughout, since a one-person business writing
   "we" undercuts the "a real person, not an agency" positioning. **Not yet
   reviewed by Blake.**
+- **2026-10-20** — Hosting moved from GitHub Pages to Cloudflare Workers
+  static assets (GitHub Pages isn't allowed to be used as hosting for a paid
+  service; see `ops/design/hosting-decision.md`). Added `wrangler.toml` and
+  `.ruby-version`; links, canonical tags and the sitemap went extensionless;
+  `check.rb` updated to match.
 
 ---
 
@@ -229,7 +246,10 @@ Same rules as every site built on this stack:
 - Confirm the OAuth App's callback URL still exactly matches `.../callback`
 
 **Site won't update**
-- Check the build log: repo → Actions or Deployments tab
+- Check the build log: Cloudflare dashboard → Workers & Pages →
+  `jones-uncommon-site` → Deployments
+- The build uses Ruby from `.ruby-version` (3.3). A gem install failure after
+  a long gap usually means the build image changed; check the log first
 - A red build usually means a Jekyll/Liquid syntax error in the last commit
 
 **A field vanished**
